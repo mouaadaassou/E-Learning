@@ -16,8 +16,12 @@ import com.mongodb.client.MongoDatabase;
 @Repository
 public class AdministrationDAOImpl implements AdministrationDAO{
 
-	public ArrayList<String> executeCommand(String command) {
-		ProcessBuilder pb = new ProcessBuilder("/bin/sh", "-c", command);
+	public ArrayList<String> executeCommand(String[] command) {
+		String array = "";
+		for(String s : command){
+			array += s + "; ";
+		}
+		ProcessBuilder pb = new ProcessBuilder("/bin/sh", "-c", array );
 		ArrayList<String> result = new ArrayList<String>();
 		String s;
 		BufferedReader in = null;
@@ -29,6 +33,12 @@ public class AdministrationDAOImpl implements AdministrationDAO{
 			}
 		}catch(IOException e){
 			result.add(e.getMessage());
+		}finally{
+			try{
+				in.close();
+			}catch(IOException e){
+				System.out.println(e.getMessage());
+			}
 		}
 		return result;
 	}
@@ -56,5 +66,7 @@ public class AdministrationDAOImpl implements AdministrationDAO{
 				return true;
 		return false;
 	}
+	
+	
 	
 }

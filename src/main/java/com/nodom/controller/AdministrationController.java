@@ -31,8 +31,41 @@ public class AdministrationController {
 	@RequestMapping(value = "/ls", method = RequestMethod.POST)
 	public String listPerson(Model model, @ModelAttribute("page") Page page )throws IOException{
 		
+		
 		this.message = "the answer is : " + administrationService.getUserLsCommandResult(page.getCommand());
 		return "redirect:/ls";
+	}
+	
+	@RequestMapping(value = "/cd", method = RequestMethod.GET)
+	public String cdCommand(Model model){
+		Page page = new Page();
+		model.addAttribute("page", page);
+		model.addAttribute("message", this.message);
+		return "cd";
+	}
+	
+	@RequestMapping(value = "/cd", method = RequestMethod.POST)
+	public String cdCommand(Model model, @ModelAttribute("page") Page page )throws IOException{
+		
+		
+		this.message = "the answer is : " + administrationService.getUserCdCommandResult(page.getCommand());
+		return "redirect:/cd";
+	}
+	
+	@RequestMapping(value = "/cat", method = RequestMethod.GET)
+	public String moreCommand(Model model){
+		Page page = new Page();
+		model.addAttribute("page", page);
+		model.addAttribute("message", this.message);
+		return "cat";
+	}
+	
+	@RequestMapping(value = "/cat", method = RequestMethod.POST)
+	public String moreCommand(Model model, @ModelAttribute("page") Page page )throws IOException{
+		
+		
+		this.message = "the answer is : " + administrationService.getUserMoreCommandResult(page.getCommand());
+		return "redirect:/cat";
 	}
 	
 	
