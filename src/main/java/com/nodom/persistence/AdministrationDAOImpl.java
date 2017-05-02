@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.nodom.domain.Exercice;
 
 @Repository
 public class AdministrationDAOImpl implements AdministrationDAO{
@@ -178,6 +179,15 @@ public class AdministrationDAOImpl implements AdministrationDAO{
 		if(!t.equals("false"))
 			t = "" + true;
 		return t;
+	}
+	
+	public void addExercice(Exercice exercice)throws IOException{
+		MongoClient mongoClient = new MongoClient();
+		MongoDatabase database = mongoClient.getDatabase("Linux");
+		MongoCollection<Document> collection = database.getCollection("exercices");
+		Document exerciceName = new Document("exercice_name", exercice.getExerciceName());
+		collection.insertOne(exerciceName.append("questions", exercice.getQuestions()).append("answers", exercice.getAnswers()));
+		mongoClient.close();
 	}
 	
 }

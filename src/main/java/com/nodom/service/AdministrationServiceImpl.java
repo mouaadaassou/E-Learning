@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nodom.domain.Answer;
+import com.nodom.domain.Exercice;
 import com.nodom.persistence.AdministrationDAO;
 
 @Service
@@ -48,6 +49,10 @@ public class AdministrationServiceImpl {
 	
 	public ArrayList<String> getQuestions(){
 		return adminnistrationDAO.getAQuestionsFromDatabase("Linux", "exercices", "exercice_1");
+	}
+	
+	public void addExercice(Exercice exercice)throws IOException{
+		this.adminnistrationDAO.addExercice(exercice);
 	}
 
 }

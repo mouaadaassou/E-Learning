@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.nodom.domain.Answer;
+import com.nodom.domain.Exercice;
 import com.nodom.domain.Page;
 import com.nodom.service.AdministrationServiceImpl;
 
@@ -98,5 +99,24 @@ public class AdministrationController {
 		return "redirect:/answer?message="+t;
 	}
 	
+	@RequestMapping(value = "/addExercice", method = RequestMethod.GET)
+	public String addExercice(Model model){
+		Exercice exercice = new Exercice();
+		model.addAttribute("exercice", exercice);
+		return "addExercice";
+	}
+	
+	@RequestMapping(value = "/addExercice", method = RequestMethod.POST)
+	public String addExerciceResponse(Model model, @ModelAttribute("exercice") Exercice exercice) throws IOException{
+		for(String s : exercice.getQuestions()){
+			System.out.println(s);
+		}
+		for(String s : exercice.getAnswers()){
+			System.out.println(s);
+		}
+		System.out.println(exercice.getExerciceName());
+		this.administrationService.addExercice(exercice);
+		return "addExercice";
+	}
 
 }
