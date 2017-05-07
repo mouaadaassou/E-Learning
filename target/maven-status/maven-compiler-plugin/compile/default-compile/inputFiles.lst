@@ -1,0 +1,12 @@
+/home/mouaad/JavaNeon/TestOne/src/main/java/com/nodom/controller/ExerciceAdministrationController.java
+/home/mouaad/JavaNeon/TestOne/src/main/java/com/nodom/service/AdministrationServiceImpl.java
+/home/mouaad/JavaNeon/TestOne/src/main/java/com/nodom/configuration/HibernateConfiguration.java
+/home/mouaad/JavaNeon/TestOne/src/main/java/com/nodom/domain/Answer.java
+/home/mouaad/JavaNeon/TestOne/src/main/java/com/nodom/persistence/AdministrationDAO.java
+/home/mouaad/JavaNeon/TestOne/src/main/java/com/nodom/domain/Page.java
+/home/mouaad/JavaNeon/TestOne/src/main/java/com/nodom/domain/Exercice.java
+/home/mouaad/JavaNeon/TestOne/src/main/java/com/nodom/configuration/AppConfig.java
+/home/mouaad/JavaNeon/TestOne/src/main/java/com/nodom/persistence/AdministrationDAOImpl.java
+/home/mouaad/JavaNeon/TestOne/src/main/java/com/nodom/configuration/AppInitializer.java
+/home/mouaad/JavaNeon/TestOne/src/main/java/com/nodom/persistence/ExerciceAdministrationDAOImpl.java
+/home/mouaad/JavaNeon/TestOne/src/main/java/com/nodom/controller/AdministrationController.java

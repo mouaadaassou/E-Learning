@@ -73,14 +73,14 @@ public class AdministrationController {
 	}
 	
 	
-	@RequestMapping(value = "/answer", method = RequestMethod.GET)
+	@RequestMapping(value = "/exercice_1", method = RequestMethod.GET)
 	public String answerYourQuestion(Model model){
 		Answer answer = new Answer();
 		model.addAttribute("answer", answer);
 		//model.addAttribute("questions", new Integer[] {1,2,3,4});
 		//model.addAttribute("message", this.message);
 		
-		ArrayList<String> questions = administrationService.getQuestions();
+		ArrayList<String> questions = administrationService.getQuestions("exercice_1");
 		int s = questions.size();
 		Integer length[] = new Integer[s];
 		for(int i = 0; i < s; i++){
@@ -92,12 +92,12 @@ public class AdministrationController {
 	}
 	
 	
-	@RequestMapping(value = "/answer", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/exercice_1", method = RequestMethod.POST)
 	public String answerYourQuestion(Model model, @ModelAttribute("answer") Answer answer )throws IOException{
 		String t = "";
 		t = administrationService.getAnswersComparaison(answer);
-		return "redirect:/answer?message="+t;
-	}
+		return "redirect:/exercice_1?message="+t;
+	}*/
 	
 	@RequestMapping(value = "/addExercice", method = RequestMethod.GET)
 	public String addExercice(Model model){
@@ -118,5 +118,8 @@ public class AdministrationController {
 		this.administrationService.addExercice(exercice);
 		return "addExercice";
 	}
+	
+	
+	
 
 }

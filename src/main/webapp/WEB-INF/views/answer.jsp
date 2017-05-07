@@ -19,7 +19,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<form:form action="answer" method="POST" commandName="answer">
+		<form:form action="${url}" method="POST" commandName="answer">
 			<c:forEach items="${length}" var="i">
 				<div class="form-group">
 					<label for="command"> ${ question.get(i)} : </label>

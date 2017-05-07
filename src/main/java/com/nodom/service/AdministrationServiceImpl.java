@@ -37,18 +37,18 @@ public class AdministrationServiceImpl {
 		return adminnistrationDAO.compareResult(commandResult, databaseResul);
 	}
 	
-	public String getAnswersComparaison(Answer answer)throws IOException{
+	public String getAnswersComparaison(Answer answer, String exercice_name)throws IOException{
 		String command = "";
 		for(String s : answer.getAnswers() ){
 			command += " " + s + " ";
 		}
 		ArrayList<String> array = adminnistrationDAO.executeQuestionQuery(command);
-		ArrayList<String> db = adminnistrationDAO.getAnswersFromDatabase("Linux", "exercices", "exercice_1");
+		ArrayList<String> db = adminnistrationDAO.getAnswersFromDatabase("Linux", "exercices", exercice_name);
 		return adminnistrationDAO.compareAnswersAndUserAnswers(array, db);
 	}
 	
-	public ArrayList<String> getQuestions(){
-		return adminnistrationDAO.getAQuestionsFromDatabase("Linux", "exercices", "exercice_1");
+	public ArrayList<String> getQuestions(String exerciceName){
+		return adminnistrationDAO.getAQuestionsFromDatabase("Linux", "exercices", exerciceName);
 	}
 	
 	public void addExercice(Exercice exercice)throws IOException{

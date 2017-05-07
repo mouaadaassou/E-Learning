@@ -17,7 +17,7 @@
       <h1>Exercice GUI</h1>
       <p>Add an Exercice</p>
     </div>
-    <form:form action="addExercice" method="POST" commandName="exercice">
+    <form:form action="addExo" method="POST" commandName="exercice">
 		<div class="container" ng-controller="ExerciceController as ctr">
       <button type="button" ng-click="ctr.addQuestion();" class="btn btn-primary">Add Question</button>
       <br><br>
