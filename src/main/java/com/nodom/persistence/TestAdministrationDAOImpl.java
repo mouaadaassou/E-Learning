@@ -32,6 +32,9 @@ public class TestAdministrationDAOImpl implements TestAdministrationDAO{
 		while((s = in.readLine()) != null){
 			result.add(new StringBuilder(s));
 		}
+		for(StringBuilder ss : result){
+			System.out.println("--"+ss);
+		}
 		return result;
 	}
 	
@@ -46,7 +49,7 @@ public class TestAdministrationDAOImpl implements TestAdministrationDAO{
 		MongoCollection<Document> collection = db.getCollection(collectionName);
 		List<Document> documents = collection.find(new Document("name", name)).into(new ArrayList<Document>());
 		for(Document document : documents){
-			result = new StringBuilder((StringBuilder)document.get("question"));
+			result = new StringBuilder((String)document.get("question"));
 		}
 		mongoClient.close();
 		return result;
@@ -67,7 +70,7 @@ public class TestAdministrationDAOImpl implements TestAdministrationDAO{
 			List<String> answers = (List<String>) document.get("answer");
 			for(int i = 0; i < answers.size(); i++){
 				result.add(new StringBuilder(answers.get(i)));
-				System.out.println(answers.get(i));
+				System.out.println("****" + answers.get(i));
 			}		}
 		mongoClient.close();
 		return result;

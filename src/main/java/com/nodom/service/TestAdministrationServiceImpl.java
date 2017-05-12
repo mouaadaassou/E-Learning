@@ -17,11 +17,15 @@ public class TestAdministrationServiceImpl implements TestAdministrationService{
 	private TestAdministrationDAO testAdministrationDAO;
 	
 	public boolean compareTheResult(TestAnswer answer, String name)throws IOException{
-		ArrayList<StringBuilder> userAnser = this.testAdministrationDAO.executeCommand(answer.getAnswer());
+		ArrayList<StringBuilder> userAnswer = this.testAdministrationDAO.executeCommand(answer.getAnswer());
 		ArrayList<StringBuilder> dbAnswer  = this.testAdministrationDAO.getAnswerFromDB("Linux", "test", name);
+		ArrayList<String> comp = new ArrayList<String>();
+		for(StringBuilder sb : userAnswer)
+			comp.add(sb.toString());
 		for(StringBuilder sb : dbAnswer)
-			if(!userAnser.contains(sb))
+			if(!comp.contains(sb.toString()))
 				return false;
+		
 		return true;
 	}
 	

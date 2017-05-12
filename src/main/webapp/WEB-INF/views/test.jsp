@@ -19,15 +19,13 @@
 		</div>
 	</div>
 	<div class="container">
-		<form:form action="${url}" method="POST" commandName="answer">
-			<c:forEach items="${length}" var="i">
+		<form:form action="${url}" method="POST" commandName="userAnswer">
 				<div class="form-group">
-					<label for="command"> ${ question.get(i)} : </label>
-					<form:textarea path="answers[${i}]" class="form-control" rows="2"
+					<label for="command"> ${question} : </label>
+					<form:textarea path="answer" class="form-control" rows="2"
 						id="command"></form:textarea>
 						<br><br>
 				</div>
-			</c:forEach>
 			<button type="submit" class="btn btn-primary">OK</button>
 		</form:form>
 	</div>

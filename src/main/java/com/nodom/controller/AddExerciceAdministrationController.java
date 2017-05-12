@@ -54,13 +54,6 @@ public class AddExerciceAdministrationController {
 	
 	@RequestMapping(value = "/addExo", method = RequestMethod.POST)
 	public String addExerciceResponse(Model model, @ModelAttribute("exercice") Exercice exercice) throws IOException{
-		/*for(String s : exercice.getQuestions()){
-			System.out.println(s);
-		}
-		for(String s : exercice.getAnswers()){
-			System.out.println(s);
-		}
-		System.out.println(exercice.getExerciceName());*/
 		exerciceAdministration.addExercice(exercice);
 		return "redirect:/addExo";
 	}
