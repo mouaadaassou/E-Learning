@@ -17,6 +17,7 @@ public class TestAdministrationServiceImpl implements TestAdministrationService{
 	private TestAdministrationDAO testAdministrationDAO;
 	
 	public boolean compareTheResult(TestAnswer answer, String name)throws IOException{
+		checkCommand(name, answer);
 		ArrayList<StringBuilder> userAnswer = this.testAdministrationDAO.executeCommand(answer.getAnswer());
 		ArrayList<StringBuilder> dbAnswer  = this.testAdministrationDAO.getAnswerFromDB("Linux", "test", name);
 		ArrayList<String> comp = new ArrayList<String>();
@@ -31,5 +32,23 @@ public class TestAdministrationServiceImpl implements TestAdministrationService{
 	
 	public StringBuilder getQuestion(String name) throws IOException{
 		return this.testAdministrationDAO.getQuestionFromDB("Linux", "test", name);
+	}
+	
+	/*
+	 * to append the suffix to the user answer
+	 */
+	public void checkCommand(String name, TestAnswer answer){
+		if("mkdir".equals(name) || "touch".equals(name)){
+			answer.setAnswer(answer.getAnswer().append(" @ ls /home"));
+			System.out.println("the answer :" + answer.getAnswer());
+		}
+		else if("cd".equals(name)){
+			answer.setAnswer(answer.getAnswer().append(" @ pwd"));
+			System.out.println("the answer :" + answer.getAnswer());
+		}
+		else if("echo".equals(name)){
+			answer.setAnswer(answer.getAnswer().append(" @ more /home/file1"));
+			System.out.println("the answer :" + answer.getAnswer());
+		}
 	}
 }

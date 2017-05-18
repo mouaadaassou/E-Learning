@@ -42,7 +42,7 @@ public class AddExerciceAdministrationController {
 	}*/
 	
 	/*
-	 * Adding an Exercice : 
+	 * Adding an Exercise : 
 	 */
 	
 	@RequestMapping(value = "/addExo", method = RequestMethod.GET)

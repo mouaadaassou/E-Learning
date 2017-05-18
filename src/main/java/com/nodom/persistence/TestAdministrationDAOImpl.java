@@ -19,7 +19,7 @@ public class TestAdministrationDAOImpl implements TestAdministrationDAO{
 	
 	/*
 	 * Execute  command in a container and get the result then return the result  
-	 * to be registered in the database if the caller is the addTest page
+	 * to be registered in the database, if the caller is the addTest page
 	 * otherwise it will be returned to be compared ...
 	 */
 	public ArrayList<StringBuilder> executeCommand(StringBuilder command)throws IOException{
@@ -71,7 +71,8 @@ public class TestAdministrationDAOImpl implements TestAdministrationDAO{
 			for(int i = 0; i < answers.size(); i++){
 				result.add(new StringBuilder(answers.get(i)));
 				System.out.println("****" + answers.get(i));
-			}		}
+			}		
+		}
 		mongoClient.close();
 		return result;
 	}

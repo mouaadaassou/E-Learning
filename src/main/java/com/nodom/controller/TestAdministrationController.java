@@ -25,6 +25,7 @@ public class TestAdministrationController {
 		TestAnswer answer = new TestAnswer();
 		StringBuilder question = testAdministrationService.getQuestion(commandName);
 		model.addAttribute("question", question);
+		System.out.println("the question is : " + question);
 		model.addAttribute("userAnswer", answer);
 		model.addAttribute("url", commandName);
 		return "test";
