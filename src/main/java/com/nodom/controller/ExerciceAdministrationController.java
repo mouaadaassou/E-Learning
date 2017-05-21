@@ -15,7 +15,7 @@ import com.nodom.domain.Answer;
 import com.nodom.service.ExerciceAdministrationService;
 
 @Controller
-@RequestMapping("/Linux/Exercice")
+@RequestMapping("/Linux/Evaluation")
 public class ExerciceAdministrationController {
 	
 	@Autowired
@@ -43,7 +43,7 @@ public class ExerciceAdministrationController {
 		boolean result = exerciceAdministrationServiceImpl.getResult(answer, url);
 		System.out.println("the answer is " + result );
 		System.out.println(url);
-		return "redirect:/Linux/Exercice/" + url + "?message=" + result;
+		return "redirect:/Linux/Evaluation/" + url + "?message=" + result;
 	}
 
 }

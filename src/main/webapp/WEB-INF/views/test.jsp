@@ -14,8 +14,10 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1>Linux Evaluation</h1>
-			<p>This is a System Administration Evaluation : </p>
-			<h2>your answers are : ${ param['message'] }</h2>
+			<p>This is a System Administration Test : </p>
+			<c:if test="${param['message'] != null}">
+				<h2>your answer is : ${ param['message'] }</h2>
+			</c:if>
 		</div>
 	</div>
 	<div class="container">
