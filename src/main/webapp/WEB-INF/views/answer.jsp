@@ -11,6 +11,20 @@
 	rel="stylesheet" />
 </head>
 <body>
+	<!-- the navigation bar -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="<c:url value="/home"/>">E-Linux</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="<c:url value="/home"/>">Home</a></li>
+				<li><a href="<c:url value="/Linux/Test"/>">Test</a></li>
+				<li><a href="<c:url value="/Linux/Evaluation"/>">Evaluations</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- end of navigation bar -->
 	<div class="container">
 		<div class="jumbotron">
 			<h1>Linux Evaluation</h1>
@@ -27,8 +41,7 @@
 					<label for="command"> ${ question.get(i)} : </label>
 					<form:textarea path="answers[${i}]" class="form-control" rows="2"
 						id="command"></form:textarea>
-					<br>
-					<br>
+					<br> <br>
 				</div>
 			</c:forEach>
 			<button type="submit" class="btn btn-primary">OK</button>
