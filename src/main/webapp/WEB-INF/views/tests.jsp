@@ -22,8 +22,10 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="<c:url value="/home"/>">Home</a></li>
-				<li><a href="<c:url value="/Linux/Test"/>">Test</a></li>
+				<li><a href="<c:url value="/Linux/Test"/>">Tests</a></li>
 				<li><a href="<c:url value="/Linux/Evaluation"/>">Evaluations</a></li>
+				<li><a href="<c:url value="/Linux/addTest"/>">add a Test</a></li>
+				<li><a href="<c:url value="/addExo"/>">add an Evaluation</a></li>
 			</ul>
 		</div>
 	</nav>

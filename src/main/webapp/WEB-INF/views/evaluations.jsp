@@ -14,7 +14,7 @@
 <title>E-Linux</title>
 </head>
 <body>
-	<!--  the navigation bar -->
+	<!-- the navigation bar -->
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -22,12 +22,14 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="<c:url value="/home"/>">Home</a></li>
-				<li><a href="<c:url value="/Linux/Test"/>">Test</a></li>
+				<li><a href="<c:url value="/Linux/Test"/>">Tests</a></li>
 				<li><a href="<c:url value="/Linux/Evaluation"/>">Evaluations</a></li>
+				<li><a href="<c:url value="/Linux/addTest"/>">add a Test</a></li>
+				<li><a href="<c:url value="/addExo"/>">add an Evaluation</a></li>
 			</ul>
 		</div>
 	</nav>
-	<!-- end of the navigation bar -->
+	<!-- end of navigation bar -->
 	<section class="container">
 		<div class="row">
 			<c:forEach var="exercice" items="${exercices}">
@@ -35,7 +37,7 @@
 					style="padding-bottom: 15px; margin-top: 150px">
 					<div class="thumbnail">
 						<div class="caption">
-							<h3>${ exercice } </h3>
+							<h3>${ exercice }</h3>
 							<p>choose this if you wanna pass the ${exercice} exercice</p>
 							<a href="<c:url value="/Linux/Evaluation/${exercice}"/>"><button
 									type="button" name="button" class="btn btn-primary">Go
