@@ -33,14 +33,17 @@ public class ExerciceAdministrationDAOImpl implements ExerciceAdministrationDAO{
 			command += result.get(result.size()-1);
 		}
 		else
-			command += result.get(0);
+			if(result.size() != 0)
+				command += result.get(0);
 		System.out.println(command);
-		ProcessBuilder pb = new ProcessBuilder("/bin/bash", "-c", "python regex_program.py " + command);
-		pb.directory(new File("/home/mouaad/Desktop/JS/script/"));
-		Process process = pb.start();
-		BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
-		String s;
-		ArrayList<String> array = new ArrayList<String>();
+		if(!command.equals("")){
+			ProcessBuilder pb = new ProcessBuilder("/bin/bash", "-c", "python regex_program.py " + command);
+			pb.directory(new File("/home/mouaad/Desktop/JS/script/"));
+			Process process = pb.start();
+			BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			String s;
+			ArrayList<String> array = new ArrayList<String>();
+		
 		
 		
 		while((s = in.readLine()) != null){
@@ -57,6 +60,7 @@ public class ExerciceAdministrationDAOImpl implements ExerciceAdministrationDAO{
 		}
 		collection.insertOne(exerciceName.append("questions", exercice.getQuestions()).append("answers", array));
 		mongoClient.close();
+		}
 	}
 	
 	
